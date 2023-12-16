@@ -14,7 +14,7 @@ extern uint32_t __stack_end__[];
 extern int main(void);
 
 uint32_t isr_vec[] __attribute__((section(".isr_vector"))) = {
-    (uint32_t)__stack_start__,
+    (uint32_t)__stack_end__,
     (uint32_t)&Reset_Handler,
     (uint32_t)&NMI_Handler,
     (uint32_t)&HardFault_Handler,
