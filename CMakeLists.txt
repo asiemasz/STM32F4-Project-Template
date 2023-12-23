@@ -14,6 +14,10 @@ add_compile_options(
   -Og
 )
 
-add_subdirectory(hw)
-add_subdirectory(src)
-add_subdirectory(test)
+if (CMAKE_CROSSCOMPILING)
+  add_subdirectory(hw)
+  add_subdirectory(src)
+else()
+  add_subdirectory(libs/gtest)
+  add_subdirectory(test)
+endif()
