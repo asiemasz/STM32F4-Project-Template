@@ -21,6 +21,8 @@ target_include_directories( ${NAME} PRIVATE
     ../hw
 )
 
+target_compile_definitions(${NAME} PRIVATE $<$<CONFIG:DEBUG>:DEBUG>)
+
 target_link_libraries(${NAME} PRIVATE hw_platform)
 
 generate_hex_file(${NAME})

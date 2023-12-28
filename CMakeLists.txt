@@ -10,8 +10,9 @@ add_compile_options(
   -Wextra
   -Wconversion
   -Wsign-conversion
-  -g3
-  -Og
+  $<$<CONFIG:DEBUG>:-g3>
+  $<$<CONFIG:DEBUG>:-Og>
+  $<$<CONFIG:RELEASE>:-O3>
 )
 
 if (CMAKE_CROSSCOMPILING)
