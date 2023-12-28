@@ -7,9 +7,9 @@ set(SOURCES
 
 add_library(${NAME} STATIC ${SOURCES})
 
-target_include_directories(${NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    cmsis
+target_include_directories(${NAME} SYSTEM PRIVATE
+    external
+    external/cmsis
 )
 
 target_include_directories(${NAME} INTERFACE startup)
