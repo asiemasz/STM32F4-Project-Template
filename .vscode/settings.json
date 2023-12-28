@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "Makefile": "makefile",
+        "stm32f4_isr_vector.h": "c",
+        "stm32f4xx.h": "c",
+        "core_init.h": "c"
+    },
+    "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
+    "cSpell.language": "en,en-GB",
+}

@@ -1,0 +1,62 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "CMake clean all",
+			"command": "rm -r build",
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "Build target project - debug",
+			"command": "./build.sh -v clean debug",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Build target project - release",
+			"command": "./build.sh -v clean release",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Build unit tests on host",
+			"command": "./build.sh unit_test",
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": {
+				"kind": "build",
+			}
+		},
+		{
+			"type": "shell",
+			"label": "Flash on board - debug",
+			"command": "openocd -f utils/openocd.cfg -c 'program build/target/debug/src/project-template.elf reset exit'",
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "Flash on board - release",
+			"command": "openocd -f utils/openocd.cfg -c 'program build/target/release/src/project-template.elf reset exit'",
+			"group": "build"
+		},
+		{
+			"type": "shell",
+			"label": "Run unit tests",
+			"command": "./build/unit_test/test/project-template_tests"
+		}
+	]
+}
